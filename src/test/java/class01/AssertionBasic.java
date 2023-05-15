@@ -32,7 +32,6 @@ public class AssertionBasic {
         Thread.sleep(5000);
         driver.quit();
     }
-
     //    testcase
 //    enter the username :Admin
 //    enter the password :abracadbara
@@ -62,7 +61,7 @@ public class AssertionBasic {
         Assert.assertEquals(errorMsg,expectedError);
         System.out.println("i am here");
 //        finding the password again as it is discarded when we clicked on login button because
-//        the DOM refeshed
+//        the DOM refreshed
 //        password text box is displayed
         password = driver.findElement(By.xpath("//input[@id = 'txtPassword']"));
         boolean pswrdDisplayed = password.isDisplayed();

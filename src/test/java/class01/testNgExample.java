@@ -17,8 +17,8 @@ public class testNgExample {
 // pre conditions - to open the browser
     // to set implicit wait
 //   pre conditions---> to open the browser
-//                      to set implcit wait
-@BeforeMethod
+//                      to set implicit wait
+@BeforeMethod(alwaysRun = true)
 public  void SetupBrowser(){
     WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
@@ -28,15 +28,17 @@ public  void SetupBrowser(){
 }
 
     //    post-condition--> to  close the browser
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser() throws InterruptedException {
         Thread.sleep(5000);
         driver.quit();
     }
 
     //    test case 1
-//    verofy login functionality
-    @Test
+//    verify login functionality
+
+    //(groups = "regression") - for xml group testing, the before, after methods have to be with alwaysRun
+    @Test(groups = "regression")
     public  void loginFunctionality(){
         WebElement username = driver.findElement(By.xpath("//input[@name='txtUsername']"));
         username.sendKeys("Admin");
@@ -48,7 +50,7 @@ public  void SetupBrowser(){
 
 
     //    testCase2
-//    verfiy that password textbox is displayed on the login Page
+//    verify that password textbox is displayed on the login Page
     @Test
     public  void passwordTextBoxVerification(){
 //        find the webElement password text box

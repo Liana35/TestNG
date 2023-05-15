@@ -9,7 +9,7 @@ public class dependsOn {
         System.out.println(6/0);
     }
     @Test(dependsOnMethods = {"Login"})
-    public  void DashBoardverification(){
+    public  void DashBoardVerification(){
         System.out.println("after login i am verifying dashboard");
     }
 }
